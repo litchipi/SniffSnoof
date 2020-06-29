@@ -1,1 +1,2 @@
-./sniffsnoof -n testdir/ 192.168.1.65-66
+mkdir -p testdir/
+./sniffsnoof -n testdir/ 10.11.1.14 --deep
