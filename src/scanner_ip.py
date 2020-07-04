@@ -16,16 +16,17 @@ from gui import OutputHandler, format_dict
 from enumeration import get_enum_command
 
 class Scanner(OutputHandler):
-    def __init__(self, args, ranges):
+    def __init__(self, args, targets):
         OutputHandler.__init__(self, args)
         self.args = args
-        self.ip_ranges = ranges
+        self.targets_ranges = targets
 
         self.childs = list()
 
     def start(self):
         self.msg("Starting scanner on target ", msglist=True)
-        self.__scan_all(self.ip_ranges)
+        for ip_range in self.target_ranges:
+            self.__scan_all(ip_range)
         self.msg("All scans started")
         if self.run():
             self.msg("All scans finished successfully")

@@ -15,15 +15,20 @@ def get_cli_args():
 
     args = parser.parse_args()
 
-    ip_ranges = [[], [], [], []]
+    targets_ips = list()
+
     for target in args.target:
+        ip_ranges = [[], [], [], []]
         for n, el in enumerate(target.split(".")):
             if el == "*":
                 ip_ranges[n] += [str(i) for i in range(1,256)]
             elif "-" in el:
                 ip_ranges[n] += [str(i) for i in range(int(el.split("-")[0]), int(el.split("-")[1])+1)]
+            elif "," in el:
+                ip_ranges[n] += el.split(",")
             elif el not in ip_ranges[n]:
                 ip_ranges[n].append(el)
+        targets_ips.append(ip_ranges)
 
     if n != 3:
         raise Exception("Wrong target, expected IPv4 format X.X.X.X")
