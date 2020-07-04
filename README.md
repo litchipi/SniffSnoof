@@ -20,5 +20,6 @@ optional arguments:
 ```
 # Exemples
 ```
-sniffsnoof --deep --dirname testdir 192.168.1.4-25
+sniffsnoof --deep --dirname testdir 192.168.1.4,25,250 192.168.2-5.1
 ```
+Will perform a deep scan (script scanning, version detection, OS detection, enumeration using external commands like fuzzers and bruteforcers) on the given targets, will store the results in the directory "testdir"
