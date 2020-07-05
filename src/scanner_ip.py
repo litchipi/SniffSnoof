@@ -25,7 +25,7 @@ class Scanner(OutputHandler):
 
     def start(self):
         self.msg("Starting scanner on target ", msglist=True)
-        for ip_range in self.target_ranges:
+        for ip_range in self.targets_ranges:
             self.__scan_all(ip_range)
         self.msg("All scans started")
         if self.run():

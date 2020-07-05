@@ -32,7 +32,7 @@ def get_cli_args():
 
     if n != 3:
         raise Exception("Wrong target, expected IPv4 format X.X.X.X")
-    return args, ip_ranges
+    return args, targets_ips
 
 if __name__ == "__main__":
     scanner = Scanner(*get_cli_args())
